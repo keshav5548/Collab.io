@@ -12,7 +12,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "http://localhost:4000",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -20,7 +20,7 @@ const io = new Server(server, {
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://localhost:4000",
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -59,7 +59,10 @@ io.on("connection", (socket) => {
     console.log({ room, message });
     socket.to(room).emit("receive-message", message);
   });
-
+  socket.on("Room created", (room) => {
+    console.log(room.id, " Room id");
+    console.log("Rooom created yay");
+  });
   socket.on("join-room", (room) => {
     socket.join(room);
     console.log(`User joined room ${room}`);
