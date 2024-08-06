@@ -67,3 +67,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.scrollable-div::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}

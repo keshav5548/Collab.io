@@ -55,10 +55,15 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
   console.log("User Connected", socket.id);
 
-  socket.on("message", ({ room, message }) => {
+  socket.on("send-message", ({ room, message }) => {
     console.log({ room, message });
-    socket.to(room).emit("receive-message", message);
+    io.to(room).emit("receive-message", { message, id: socket.id });
   });
+
+  // socket.on("message", ({ room, message }) => {
+  //   console.log({ room, message });
+  //   socket.to(room).emit("receive-message", message);
+  // });
   socket.on("Room created", (room) => {
     console.log(room.id, " Room id");
     console.log("Rooom created yay");

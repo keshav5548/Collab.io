@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import socket from "@/components/socket";
 import { useSearchParams } from "next/navigation";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 
+import Chatbotx from "@/components/chat-ui/chatbotx";
 const page = () => {
   const searchParams = useSearchParams();
   const room = searchParams.get("room");
+
   useEffect(() => {
     if (room) {
       console.log(room);
@@ -20,11 +20,10 @@ const page = () => {
   }, [room]);
 
   return (
-    <div>
-      Chat OP
-      <Input placeholder="Chat here"></Input>
-      <Button type="submit">Submit</Button>
-    </div>
+    <>
+      <div>Collaborate div</div>
+      {room ? <Chatbotx /> : null}
+    </>
   );
 };
 
