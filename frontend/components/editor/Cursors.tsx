@@ -9,17 +9,7 @@ type Props = {
 
 export function Cursors({ yProvider }: Props) {
   // Get user info from Liveblocks authentication endpoint
-
-  const user = {
-    id: "charlielayne@example.com",
-    info: {
-      name: "Charlie Layne",
-      color: "#D583F0",
-      picture:
-        "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg",
-    },
-  };
-  const userInfo = user.info;
+  const userInfo = useSelf((me) => me.info);
 
   const [awarenessUsers, setAwarenessUsers] = useState<AwarenessList>([]);
 
@@ -47,10 +37,11 @@ export function Cursors({ yProvider }: Props) {
 
     for (const [clientId, client] of awarenessUsers) {
       if (client?.user) {
+        const userColor = client.user.color || "orangered";
         cursorStyles += `
           .yRemoteSelection-${clientId}, 
           .yRemoteSelectionHead-${clientId}  {
-            --user-color: "orange";
+            --user-color: ${userColor};
           }
           
           .yRemoteSelectionHead-${clientId}::after {

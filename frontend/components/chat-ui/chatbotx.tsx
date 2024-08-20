@@ -11,6 +11,7 @@ const Chatbotx = () => {
   const [isOpen, setIsOpen] = useState(false);
   const searchParams = useSearchParams();
   const room = searchParams.get("room");
+  console.log("chat", room);
   const [message, setmessage] = useState("");
   const [receivedMessage, setReceivedMessage] = useState([]);
   const emptyDiv = useRef(null);
@@ -37,6 +38,15 @@ const Chatbotx = () => {
       socket.off("receive-message");
     };
   }, []);
+  useEffect(() => {
+    if (room) {
+      console.log(room);
+      socket.emit("join-room", room);
+    }
+    return () => {
+      if (room) socket.emit("leave-room", room);
+    };
+  }, [room]);
 
   return (
     <div className="fixed bottom-5 right-5">

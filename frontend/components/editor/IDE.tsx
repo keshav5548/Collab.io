@@ -15,6 +15,7 @@ import { Toolbar } from "@/components/editor/Toolbar";
 import { CODE_SNIPPETS } from "./constants";
 import LanguageSelector from "./LanguageSelector";
 import Output from "./output";
+
 // Collaborative code editor with undo/redo, live cursors, and live avatars
 export function IDE() {
   const room = useRoom();
@@ -66,6 +67,7 @@ export function IDE() {
         <div>{editorRef ? <Toolbar editor={editorRef} /> : null}</div>
         <Avatars />
       </div>
+
       <div className={styles.editorContainer}>
         <LanguageSelector language={language} onSelect={onSelect} />
         <Editor

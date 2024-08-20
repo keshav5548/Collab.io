@@ -12,7 +12,8 @@ const page = () => {
   };
   const [roomCode, setRoomCode] = useState("");
   const navigateToRoom = () => {
-    if (roomCode.length > 0) router.push(`/code?room=${roomCode}`);
+    if (roomCode.length > 0)
+      router.push(`/api/liveblocks-auth?room=${roomCode}`);
   };
 
   return (
