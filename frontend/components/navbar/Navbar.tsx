@@ -37,7 +37,7 @@ const links = [
 ];
 
 const dropdownLinks = [
-  { name: "Code Editor", path: "/code" },
+  { name: "Code Editor", path: "/api/liveblocks-auth" },
   { name: "Drawing area", path: "/code" },
   { name: "Chat", path: "/code" },
 ];
