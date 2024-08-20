@@ -5,15 +5,15 @@ import { LiveblocksYjsProvider } from "@liveblocks/yjs";
 import { useRoom } from "@liveblocks/react/suspense";
 import { useCallback, useEffect, useState, useRef } from "react";
 import styles from "./ide.module.css";
-import { Avatars } from "@/components/Avatars";
+import { Avatars } from "@/components/editor/Avatars";
 import { Editor } from "@monaco-editor/react";
 import { editor } from "monaco-editor";
 import { MonacoBinding } from "y-monaco";
 import { Awareness } from "y-protocols/awareness";
-import { Cursors } from "@/components/Cursors";
-import { Toolbar } from "@/components/Toolbar";
-import { CODE_SNIPPETS } from "../constants";
-import LanguageSelector from "../LanguageSelector";
+import { Cursors } from "@/components/editor/Cursors";
+import { Toolbar } from "@/components/editor/Toolbar";
+import { CODE_SNIPPETS } from "./constants";
+import LanguageSelector from "./LanguageSelector";
 import Output from "./output";
 // Collaborative code editor with undo/redo, live cursors, and live avatars
 export function IDE() {

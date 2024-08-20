@@ -7,7 +7,7 @@ import {
   Snackbar,
 } from "@mui/material";
 import { Alert } from "@mui/material";
-import { executeCode } from "../api";
+import { executeCode } from "./IDE-API/api";
 
 const Output = ({ editorRef, language }) => {
   const [output, setOutput] = useState(null);

@@ -3,9 +3,9 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-} from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
-import { useRef, useState } from "react";
+} from "../ui/dropdown-menu";
+import { Button } from "../ui/button";
+import { useState } from "react";
 
 import { LANGUAGE_VERSIONS } from "./constants";
 import { FaChevronDown } from "react-icons/fa";
